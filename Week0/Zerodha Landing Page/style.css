@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    align-items: center;
+    box-shadow: 2px 1px 2px #eee;
+    width: 100.6%;
+    position: fixed;
+}
+.navTxt{
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.navTxt div{
+    padding: 20px;
+}
+.navTxt div:hover{
+    color: #387ed1;
+}
+.nav img{
+    width: 135px;
+    height: 17px;
+}
+
+.landingPageImage{
+    display: flex;
+    justify-content: center;
+    padding-top: 125px;
+}
+.landingTxt h1{
+    display: flex;
+    justify-content: center;
+    font-size: 3.00rem;
+    font-weight: 600;
+    padding-top: 1.5rem;
+    margin-bottom: 0;
+}
+.landingTxt h3{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.signupBtn{
+    display: flex;
+    justify-content: center;
+}
+button{
+    background-color: #387ed1;
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0) !important;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button:hover{
+    background-color: #555;
+}
