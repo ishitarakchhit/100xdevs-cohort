@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script>
+
+            let globalId = 1;
+            
+            function createChild(title, description, id){
+                const child = doc
+            }
+            function addTodo(){
+                const title = document.getElementbyId("title").value;
+                const description = document.getElementbyId("description").value;
+                const parent = document.getElementById("todos");
+
+                parent.appendChild(createChild(title, description, globalId++));
+            }
+            
+        </script>
+    </head>
+    <body>
+        <input id="title" type="text" placeholder="Todo title">
+        <br><br>
+        <input id="description" type="text" placeholder="Todo description">
+        <br><br>
+        <button onclick="addTodo()">Add todo</button>
+        <br><br>
+        <div id="todos"></div>
+    </body>
+</html>

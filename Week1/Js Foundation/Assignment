@@ -1,0 +1,36 @@
+// Question 1: to create a counter from 30 to 0
+
+function f(){
+    for(let i=30; i>=0; i--){
+        console.log(i);
+    }
+}
+f();
+
+//Question 2 : to cal time taken from settimeout and inner function being called
+
+
+//Question 3: to create a terminal clock in HH:MM:SS
+let h = 4, m = 40, s= 0;
+
+
+function funcS(){
+    console.log(h + ":" + m + ":" + s);
+    if(s<59)
+        s++;
+    else{
+        if(m<59){
+            s=0; m++;
+        }
+        else{
+            if(h<25){
+                m=0; s=0; h++;
+            }
+            else{
+                h=0;m=0; s=0;
+            }
+        }
+    }
+}
+
+setInterval(funcS, 1000);
