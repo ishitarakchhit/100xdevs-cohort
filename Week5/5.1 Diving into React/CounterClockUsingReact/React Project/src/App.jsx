@@ -6,30 +6,28 @@
 import { useState } from "react";
 
 
-
 function App() {
-  const [count, setCount] = useState(0);
-
-  function onClickHandler(){
-    setCount(count + 1);
-  }
+  const [count, setCount] = useState(0);  
 
   return (
     <div>
-      <CustomButton count={count} setCount={setCount} ></CustomButton>    
+      <CustomButtonComponent count={count} setCount = {setCount}></CustomButtonComponent>
+      <CustomButtonComponent count={count} setCount = {setCount}></CustomButtonComponent>
+      <CustomButtonComponent count={count} setCount = {setCount}></CustomButtonComponent>
     </div>
   )
 } 
 
-function CustomButton(props){
+//component
+function CustomButtonComponent(props){
+  
   function onClickHandler(){
     props.setCount(props.count+1);
   }
-
-  return <button onClick = {onClickHandler}>
-  Counter {props.count}                                           {/* {} contains things which are dynamic */}
+  return <button onClick = {onClickHandler}> 
+  Counter {props.count}
   </button>
-
 }
+
 
 export default App

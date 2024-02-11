@@ -1,0 +1,67 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <input id="title" type="text" placeholder="Todo title">
+        <br><br>
+        <input id="description" type="text" placeholder="Todo description">
+        <br><br>
+        <div id="todos"></div>
+
+
+        <script>
+            let state= [{
+                id: "1",
+                title: "go to gym",
+                description: "visit there 5-7"
+            },
+            {
+                id: "2",
+                title: "slap yourself",
+                description: "in a cool way"
+            }]
+
+            function markDone(todoId){
+                const parent = document.getElementById(todoId);
+                parent.children[2].innerHTML = "Done!";
+                parent.children[2].style.background = "lightgreen";
+            }
+
+            //creates a div child element then appends 2 divs and 1 button inside it then it return the outerdiv ele
+            function createChild(title, description, id){
+                const child = document.createElement("div");
+                const grandchild1 = document.createElement("div");
+                const grandchild2 = document.createElement("div");
+                const grandchild3 = document.createElement("button");
+                grandchild1.innerHTML = title;
+                grandchild2.innerHTML = description;
+                grandchild3.innerHTML = "Mark as Done";
+                child.setAttribute("id", id);
+                grandchild3.setAttribute("onClick", `markDone(${id})`);
+                child.appendChild(grandchild1);
+                child.appendChild(grandchild2);
+                child.appendChild(grandchild3);
+                return child;
+            }
+            function updateDomAccordingToState(state){
+                const parent = document.getElementById("todos");
+                parent.innerHTML = "";
+                for(let i=0; i<state.length; i++){
+                    const title = state[i].title;
+                    const description = state[i].description;
+                    const globalId = state[i].id;
+
+                    parent.appendChild(createChild(title,description, globalId));
+                }
+            }
+            
+            window.setInterval(async function(){
+                const res = await fetch("https://sum-server.100xdevs.com/todos");
+                const json = await res.json();
+                updateDomAccordingToState(json.todos);
+            }
+                , 5000);
+        </script>
+    </body>
+</html>

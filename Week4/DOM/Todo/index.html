@@ -4,12 +4,32 @@
 
             let globalId = 1;
             
+            function markDone(todoId){
+                const parent = document.getElementById(todoId);
+                parent.children[2].innerHTML = "Done!";
+                parent.children[2].style.background = "lightgreen";
+                
+            }
+
+            //creates a div child element then appends 2 divs and 1 button inside it then it return the outerdiv ele
             function createChild(title, description, id){
-                const child = doc
+                const child = document.createElement("div");
+                const grandchild1 = document.createElement("div");
+                const grandchild2 = document.createElement("div");
+                const grandchild3 = document.createElement("button");
+                grandchild1.innerHTML = title;
+                grandchild2.innerHTML = description;
+                grandchild3.innerHTML = "Mark as Done";
+                child.setAttribute("id", id);
+                grandchild3.setAttribute("onClick", `markDone(${id})`);
+                child.appendChild(grandchild1);
+                child.appendChild(grandchild2);
+                child.appendChild(grandchild3);
+                return child;
             }
             function addTodo(){
-                const title = document.getElementbyId("title").value;
-                const description = document.getElementbyId("description").value;
+                const title = document.getElementById("title").value;
+                const description = document.getElementById("description").value;
                 const parent = document.getElementById("todos");
 
                 parent.appendChild(createChild(title, description, globalId++));
@@ -22,7 +42,7 @@
         <br><br>
         <input id="description" type="text" placeholder="Todo description">
         <br><br>
-        <button onclick="addTodo()">Add todo</button>
+        <button onclick=addTodo() >Add todo</button>
         <br><br>
         <div id="todos"></div>
     </body>
